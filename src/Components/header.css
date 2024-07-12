@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '/src/global.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+img {
+  max-width: 250px;
+  filter: drop-shadow(0px 0px 80px #2ddfff);
+}
+.header-matter h1{
+  font-family: orbitron;
+  color: #98ecff;
+  stroke-width: 2px;
+  text-shadow: 0px 2px 10px #13bee4, 0px 2px 10px #13bee4, 0px 2px 30px #13bee4;
+}
+.header-1-h2{
+  font-family: orbitron;
+  font-weight: 900;
+}
+.connector-img{
+  filter: drop-shadow(0px 0px 2px #2ddfff);
+}
+.verti-bar {
+  @apply rounded w-3px md:w-5px h-full bg-gradient-to-b from-[#2ddfff] to-[#ff1e87];
+}
+
+.verti-bar::before {
+  @apply absolute w-3px md:w-5px h-full bg-gradient-to-b from-[#2ddfff] to-[#eb04b5] rounded-lg shadow-lg;
+  content: '';
+  filter: blur(2px);
+}
+
+.verti-bar {
+  @apply rounded w-3px md:w-5px h-full bg-gradient-to-b from-[#2ddfff] to-[#ff1e87];
+}
+
+.verti-bar::before {
+  @apply absolute w-3px md:w-5px h-full bg-gradient-to-b from-[#2ddfff] to-[#eb04b5] rounded-lg shadow-lg;
+  content: '';
+  filter: blur(2px);
+}

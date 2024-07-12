@@ -1,0 +1,8 @@
+@font-face {
+  font-family: orbitron;
+  src: url(/public/fonts/Orbitron-VariableFont_wght.woff);
+}
+@font-face {
+  font-family: ubuntu;
+  src: url(/public/fonts/Ubuntu-Regular.woff);
+}

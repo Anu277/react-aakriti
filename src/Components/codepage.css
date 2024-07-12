@@ -1,0 +1,45 @@
+/* width */
+.tech-events::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Track */
+  .tech-events::-webkit-scrollbar-track {
+    background: #0505057e;
+  }
+  
+  /* Handle */
+  .tech-events::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  .tech-events::-webkit-scrollbar-thumb:hover {
+    background: #d7d7d7;
+  }
+
+
+  .non-tech-events::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Track */
+  .non-tech-events::-webkit-scrollbar-track {
+    background: #0505057e;
+  }
+  
+  /* Handle */
+  .non-tech-events::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  .non-tech-events::-webkit-scrollbar-thumb:hover {
+    background: #d7d7d7;
+  }

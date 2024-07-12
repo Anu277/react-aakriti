@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MDQDS2SHWR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MDQDS2SHWR');
+    </script>
+    
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Welcome to JNTUHUCEM's Aakriti Fest! Join us for a variety of tech and non-tech events.">
+    <meta name="keywords" content="Aakriti, JNTUHUCEM, college fest, tech events, non-tech events">
+    <meta name="author" content="Anurag">
+    <title>Aakriti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/src/index.css" />
+    <script src="https://kit.fontawesome.com/a53285079f.js" crossorigin="anonymous"></script>
+    <style>
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+      *{
+        scroll-behavior: smooth;
+      }
+      html{
+        scroll-behavior: smooth;
+      }
+      /*.unload{
+        display: none;
+      }*/
+      @media screen and (min-width: 768px) {
+        ::-webkit-scrollbar {
+          width: 10px;
+          height: 10px;
+          border-radius: 5px;
+        }
+        
+        /* Track */
+        ::-webkit-scrollbar-track {
+          background: #0505057e;
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+          background: #2ddfff;
+          border-radius: 5px;
+        }
+        
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+          background: #d7d7d7;
+        }
+
+      }
+      @media screen and (min-width: 768px) {
+        #follower {
+          position: fixed;
+          width: 2rem;
+          height: 2rem;
+          border: 2px solid cyan;
+          box-shadow: 0px 0px 15px cyan,0px 0px 30px cyan,0px 0px 45px cyan,0px 0px 60px cyan,0px 0px 75px cyan;
+          background-color: cyan;
+          border-radius: 50%;
+          z-index: -1;
+        }
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@v0.150.1/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@v0.150.1/examples/jsm/"
+        }
+      }
+    </script>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+  </head>
+  <body class="realtive">
+    <div id="follower"></div>
+    
+    <div class="unload">
+      <div class="hidden md:flex text-white fixed right-0 mt-20">
+        <div class=" sticky navigation flex flex-col min-w-auto max-w-xl justify-between">
+          <div class="Skewed px-3 m-3 -skew-y-6 flex ">
+              <button><a href="#" class="p-2 md:p-5 bg-[#ff4a9f] hover:bg-[#ff4a9f] ">Home</a></button>
+          </div>
+          <div class="Skewed px-3 m-3 -skew-y-6 flex ">
+              <button><a href="#abt-aakriti" class="p-2 md:p-5 bg-[#ff4a9f] hover:bg-[#ff4a9f]">About</a></button>
+          </div>
+          <div class="Skewed px-3 m-3 -skew-y-6 flex ">
+              <button><a href="#event-matter" class="p-2 md:p-5 bg-[#ff4a9f] hover:bg-[#ff4a9f]">Events</a></button>
+          </div>
+          <div class="Skewed px-3 m-3 -skew-y-6 flex ">
+              <button><a href="#footer-matter" class="p-2 md:p-5 bg-[#ff4a9f] hover:bg-[#ff4a9f]">Contact</a></button>
+          </div>
+        </div>
+      </div>
+      <div id="root"></div>
+      <div class="abcd"></div>
+      <div class="globe-render" id="globe-render">
+        <script type="module" src="./globe.js"></script>
+      </div>
+    </div>
+    <div class="loading flex flex-col justify-center items-center w-full h-dvh bg-[#000f14]">
+      <img src="aakriti-logo.webp" alt="loader">
+      <div class="pinger animate-ping absolute inline-flex h-52 w-52 rounded-full bg-sky-400 opacity-30"></div>
+      <p class="text-3xl lg:text-7xl text-[#0bfffb] font-serif ">LOADING...</p>
+    </div>
+    
+    <script>
+      // Select the follower element
+      const follower = document.getElementById('follower');
+
+      // Set initial position
+      let mouseX = 0;
+      let mouseY = 0;
+
+      // Function to update the follower position
+      function updateFollowerPosition(event) {
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+      }
+
+      // Function to animate the follower
+      function animateFollower() {
+        // Calculate the target position with a delay
+        const targetX = mouseX - 10; // Subtract half the width of the follower
+        const targetY = mouseY - 10; // Subtract half the height of the follower
+        
+        // Calculate the current position
+        const currentX = parseFloat(getComputedStyle(follower).left);
+        const currentY = parseFloat(getComputedStyle(follower).top);
+        
+        // Smoothly move the follower towards the target position
+        const dx = targetX - currentX;
+        const dy = targetY - currentY;
+        const easeFactor = 0.05; // Adjust the ease factor for smoother or faster movement
+        follower.style.left = currentX + dx * easeFactor + 'px';
+        follower.style.top = currentY + dy * easeFactor + 'px';
+
+        // Request the next frame
+        requestAnimationFrame(animateFollower);
+      }
+
+      // Listen for mousemove events and update the follower position
+      document.addEventListener('mousemove', updateFollowerPosition);
+
+      // Start the animation loop
+      animateFollower();
+
+
+      window.addEventListener('load', function() {
+        // Show the content by making the body visible
+        document.querySelector('.unload').style.display = 'block';
+        // Remove the loading overlay
+        var loadingOverlay = document.querySelector('.loading');
+        if (loadingOverlay) {
+          loadingOverlay.style.display='none';
+        }
+      });
+
+
+
+      ///cookies
+      function createCookie(name, value, days) {
+        var expires;
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = "; expires=" + date.toUTCString();
+        } else {
+          expires = "";
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+      }
+
+      function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+
+      function checkCookie() {
+        var cookieMessage = getCookie("cookieMessage");
+        if (cookieMessage == null || cookieMessage == "") {
+          createCookie("cookieMessage", "seen", 2);
+          alert("This website uses cookies to ensure you get the best experience. By continuing to use this site, you accept our use of cookies. Please note: For the best viewing experience, we recommend using a desktop browser. Our site is optimized for desktops and may experience slight lag on mobile devices. Also, please be aware that this message will only appear once every 2 days.");
+
+        }
+      }
+      alert("The events we listed are from the previous year's fest and will be updated accordingly after confirmation.");
+
+    window.onload = checkCookie;
+
+    </script>
+  </body>
+</html>
